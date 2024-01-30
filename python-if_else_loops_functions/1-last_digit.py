@@ -11,4 +11,4 @@ elif (a < 6):
     print("Last digit of", number, "is", a, "and is less than 6 and not 0")
 else:
     print("Last digit of", number, "is", a, "and is greater than 5")
-    
+  
