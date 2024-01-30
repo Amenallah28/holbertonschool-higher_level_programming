@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-def uppercase(str):
+def upperstringase(str):
     string = ""
-    for i in range(len(str)):
-        if ((ord(str[i]) >= 97) and (ord(str[i]) <= 122)):
-            string = string + (chr(ord(str[i]) - 32))
+    for i in str:
+        if ((ord(i) >= 97) and (ord(i) <= 122)):
+            string = string + chr(ord(i) - 32)
         else:
-            string = string + (str[i])
-    print(string)
+            string =string + i
+    print("{}".format(string))
