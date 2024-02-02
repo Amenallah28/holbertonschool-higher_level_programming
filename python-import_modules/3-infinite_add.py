@@ -1,4 +1,4 @@
-#!/usr/bin/py#!/usr/bin/python3
+#!/usr/bin/python3
 if __name__ == "__main__":
     from sys import argv
     if len(argv) <= 1:
@@ -8,4 +8,3 @@ if __name__ == "__main__":
         for i in range(1, len(argv)):
             sum += int(argv[i])
         print("{}".format(sum))
-        
