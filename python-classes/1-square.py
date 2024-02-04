@@ -15,3 +15,4 @@ class Square:
         the user defines the size
         """
         self.__size = size
+
