@@ -7,7 +7,7 @@ a class Square that defines a square size
 class Square:
 
     """
-    an empty class Square 
+    an empty class Square
     """
 
     def __init__(self, size):
@@ -15,4 +15,3 @@ class Square:
         the user defines the size
         """
         self.__size = size
-
