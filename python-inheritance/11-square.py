@@ -7,7 +7,7 @@ class Square(Rectangle):
     """this is the square class"""
 
     def __init__(self, size):
-        """ initialize size"""
+        """initialize size"""
         self.integer_validator("size", size)
         self.__size = size
 
@@ -16,6 +16,5 @@ class Square(Rectangle):
         return self.__size ** 2
 
     def __str__(self):
-        """ return the square description: [Square] <width>/<height>"""
+        """return the square description: [Square] <width>/<height>"""
         return "[Square] {}/{}".format(self.__size, self.__size)
-    
