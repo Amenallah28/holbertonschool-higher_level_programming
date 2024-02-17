@@ -90,3 +90,23 @@ class Rectangle(Base):
     def __str__(self):
         """[Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+    def update1(self, id=None, width=None, height=None, x=None, y=None):
+        """task 8: method to update instance attributes via *args only"""
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.__width = width
+        if height is not None:
+            self.__height = height
+        if x is not None:
+            self.__x = x
+        if y is not None:
+            self.__y = y
+
+    def update(self, *args, **kwargs):
+        """task 9 : update instance attribute via *args and **kwargs"""
+        if args:
+            self.update1(*args)
+        elif kwargs:
+            self.update1(**kwargs)
