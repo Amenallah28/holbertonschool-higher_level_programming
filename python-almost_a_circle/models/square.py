@@ -24,3 +24,26 @@ class Square(Rectangle):
         """setter method: assign size to width and height"""
         self.width = size
         self.height = size
+
+    def update2(self, id=None, size=None, x=None, y=None):
+        """update instance attributes with args only"""
+        if id is not None:
+            self.id = id
+        if size is not None:
+            self.size = size
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        """update instance attributes with args and kwargs"""
+
+        if args:
+            self.update2(*args)
+        elif kwargs:
+            self.update2(**kwargs)
+
+    def to_dictionary(self):
+        """return the dictionary representation of a Square"""
+        return {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
