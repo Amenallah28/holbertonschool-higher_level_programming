@@ -5,7 +5,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """rectangle class"""
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """constructor method"""
         super().__init__(id)
@@ -25,7 +25,7 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value <= 0:
-            raise ValueError("width must be an integer")
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -39,7 +39,7 @@ class Rectangle(Base):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value <= 0:
-            raise ValueError("height must be an integer")
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -51,7 +51,7 @@ class Rectangle(Base):
     def x(self, value):
         """Setter method for x"""
         if not isinstance(value, int):
-            raise TypeError ("x must be an integer")
+            raise TypeError("x must be an integer")
         elif value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
@@ -65,18 +65,18 @@ class Rectangle(Base):
     def y(self, value):
         """Setter method for y"""
         if not isinstance(value, int):
-            raise TypeError ("y must be an integer")
+            raise TypeError("y must be an integer")
         elif value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
         """returning the area of the rectangle"""
-        return self.__width*self.__height
-    
+        return self.__width * self.__height
+
     def display(self):
         """display the rectangle"""
-        if self.__y >  0:
+        if self.__y > 0:
             for i in range(self.__y):
                 print()
         for i in range(self.__height):
@@ -86,9 +86,7 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print("#", end="")
             print()
-    
-    
 
-
-
-    
+    def __str__(self):
+        """[Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
