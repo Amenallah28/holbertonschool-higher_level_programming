@@ -89,7 +89,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """[Rectangle] (<id>) <x>/<y> - <width>/<height>"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
+- {self.__width}/{self.__height}"
 
     def update1(self, id=None, width=None, height=None, x=None, y=None):
         """task 8: method to update instance attributes via *args only"""
