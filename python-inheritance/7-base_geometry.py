@@ -1,17 +1,26 @@
 #!/usr/bin/python3
-"""Write a class BaseGeometry with 2 public instance methods"""
+"""Defines a base geometry class BaseGeometry."""
 
 
 class BaseGeometry:
-    """ this is the class"""
+    """Reprsent base geometry."""
 
     def area(self):
-        """this is the first public instnace method"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """this is the second public instance method"""
-        if not isinstance(value, int):
+        """Public instance method: def
+        integer_validator(self, name, value): that validates value
+
+        Args:
+            name (str): The name .
+            value (int): The parameter.
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is <= 0.
+        """
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+        
