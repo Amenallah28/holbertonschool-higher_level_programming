@@ -15,9 +15,10 @@ class Student:
         if attrs is None:
             return self.__dict__
         else:
-            my_dict = {}
-            for att in attrs:
-                if att in self.__dict__.keys():
-                    my_dict.update({att: self.__dict__[att]})
-            return my_dict
-        
+            return {att: self.__dict__[att] for
+                    att in attrs if hasattr(self, att)}
+
+    def reload_from_json(self, json):
+        for key, value in json.items():
+            setattr(self, key, value)
+            
