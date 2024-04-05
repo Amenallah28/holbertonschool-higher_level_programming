@@ -1,22 +1,36 @@
 #!/usr/bin/python3
-"""script that lists all State objects from the database hbtn_0e_6_usa"""
-from sys import argv
-from model_state import Base, State
+"""
+This script lists all State objects
+from the database `hbtn_0e_6_usa`.
+"""
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
+import sys
+
+
+def main(username, password, db_name):
+    """
+    Access to the database and get the states
+    from the database.
+    """
+    # Create the database connection
+    cnt = f"mysql+mysqldb://{username}:{password}@localhost:3306/{db_name}"
+    # Create the engine
+    engine = create_engine(cnt)
+    # Create a configured "Session" class
+    Session = sessionmaker(bind=engine)
+    # Create a Session
+    session = Session()
+    # Query the states and print it
+    for instance in session.query(State).order_by(State.id):
+        print(f"{instance.id}: {instance.name}")
+    # Close the session
+    session.close()
+
 
 if __name__ == "__main__":
-    """create the SQLAlchemy engine"""
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                           format(argv[1], argv[2], argv[3]),
-                           pool_pre_ping=True)
-    """Create a session to iinteract with the database"""
-    Base.metadata.create_all(engine)
-    session = Session(engine)
-
-    """Querying the database"""
-    states = session.query(State).order_by(State.id).all()
-
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
-        
+    username = sys.argv[1]
+    password = sys.argv[2]
+    db_name = sys.argv[3]
+    main(username, password, db_name)
