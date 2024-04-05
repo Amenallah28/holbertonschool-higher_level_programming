@@ -14,7 +14,8 @@ def main(username, passsword, db_name, state_name):
     """
 
     db = MySQLdb.connect(
-        host="localhost", user=username, port=3306, passwd=passsword, db=db_name
+        host="localhost", user=username,
+        port=3306, passwd=passsword, db=db_name
     )
     cur = db.cursor()
 
